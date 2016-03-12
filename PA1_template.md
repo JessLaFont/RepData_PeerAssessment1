@@ -66,15 +66,7 @@ StepsPerDay <- tapply(ActiveData_X$steps, ActiveData_X$date, sum, na.rm = TRUE)
 Next, a histogram was generated to view the total number of steps recorded each day.
 
 ```r
-library(ggplot2)
-```
-
-```
-## Warning: package 'ggplot2' was built under R version 3.2.3
-```
-
-```r
-qplot(StepsPerDay, xlab = "Total Number of Steps", ylab = "Number of Days", main = "Total Recorded Steps Per Day", binwidth = 500)
+hist(StepsPerDay, xlab = "Total Recorded Steps", ylab = "Number of Days", main= "Total Recorded Steps Per Day")
 ```
 
 ![](PA1_template_files/figure-html/unnamed-chunk-9-1.png)\
@@ -140,6 +132,13 @@ DailyActivity <- ActiveData_X %>%
 
 
 library(ggplot2)
+```
+
+```
+## Warning: package 'ggplot2' was built under R version 3.2.3
+```
+
+```r
 ggplot(data = DailyActivity, aes(x=interval, y=steps, group=1)) +
         geom_line(color = "blue") +
         xlab("Time Interval") +
@@ -208,7 +207,7 @@ To determine the impact of using the imputed data set as opposed to the original
 
 ```r
 StepsPerDay_Imp <- tapply(ActiveData_Imp$steps, ActiveData_Imp$date, sum)
-qplot(StepsPerDay_Imp, xlab = "Total Number of Steps", ylab = "Number of Days", main = "Total Recorded  and Imputed Steps Per Day", binwidth = 500)
+hist(StepsPerDay_Imp, xlab = "Total Number of Steps", ylab = "Number of Days", main = "Total Recorded  and Imputed Steps Per Day")
 ```
 
 ![](PA1_template_files/figure-html/unnamed-chunk-24-1.png)\
